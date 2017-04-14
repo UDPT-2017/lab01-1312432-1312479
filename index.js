@@ -83,6 +83,15 @@
       });
   });
 
+   app.get('/abouts', function(req, res) {
+      
+      res.render('abouts', {
+          title: 'about',
+          message: 'about',
+          
+      });
+  });
+
   app.listen(3000, function() {
       console.log('Example app listening on port 3000!');
   });
