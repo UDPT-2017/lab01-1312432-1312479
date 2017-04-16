@@ -1,0 +1,125 @@
+CREATE DATABASE lab01
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'English_United States.1252'
+    LC_CTYPE = 'English_United States.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
+
+    -- Table: public.albums
+
+    -- DROP TABLE public.albums;
+    -- Table: public.users
+
+    -- DROP TABLE public.users;
+
+    CREATE TABLE public.users
+    (
+        id integer NOT NULL DEFAULT nextval('users_id_seq'::regclass),
+        username character varying(20) COLLATE pg_catalog."default",
+        password character varying(50) COLLATE pg_catalog."default",
+        email character varying(50) COLLATE pg_catalog."default",
+        avatar character varying(100) COLLATE pg_catalog."default",
+        CONSTRAINT users_pkey PRIMARY KEY (id)
+    )
+    WITH (
+        OIDS = FALSE
+    )
+    TABLESPACE pg_default;
+
+    ALTER TABLE public.users
+        OWNER to postgres;
+
+
+
+    CREATE TABLE public.albums
+    (
+        id integer NOT NULL DEFAULT nextval('albums_id_seq'::regclass),
+        title character varying(50) COLLATE pg_catalog."default",
+        view integer,
+        userid integer,
+        CONSTRAINT albums_pkey PRIMARY KEY (id),
+        CONSTRAINT albums_userid_fkey FOREIGN KEY (userid)
+            REFERENCES public.users (id) MATCH SIMPLE
+            ON UPDATE NO ACTION
+            ON DELETE NO ACTION
+    )
+    WITH (
+        OIDS = FALSE
+    )
+    TABLESPACE pg_default;
+
+    ALTER TABLE public.albums
+        OWNER to postgres;
+        -- Table: public.photos
+
+        -- DROP TABLE public.photos;
+
+        CREATE TABLE public.photos
+        (
+            id integer NOT NULL DEFAULT nextval('photos_id_seq'::regclass),
+            url character varying(100) COLLATE pg_catalog."default",
+            view integer,
+            albumid integer,
+            CONSTRAINT photos_pkey PRIMARY KEY (id),
+            CONSTRAINT photos_albumid_fkey FOREIGN KEY (albumid)
+                REFERENCES public.albums (id) MATCH SIMPLE
+                ON UPDATE NO ACTION
+                ON DELETE NO ACTION
+        )
+        WITH (
+            OIDS = FALSE
+        )
+        TABLESPACE pg_default;
+
+        ALTER TABLE public.photos
+            OWNER to postgres;
+
+            -- Table: public.blogs
+
+      -- DROP TABLE public.blogs;
+
+      CREATE TABLE public.blogs
+      (
+          id integer NOT NULL DEFAULT nextval('blogs_id_seq'::regclass),
+          title character varying(50) COLLATE pg_catalog."default",
+          blogdetail character varying(200) COLLATE pg_catalog."default",
+          userid integer,
+          view integer,
+          CONSTRAINT blogs_pkey PRIMARY KEY (id),
+          CONSTRAINT blogs_userid_fkey FOREIGN KEY (userid)
+              REFERENCES public.users (id) MATCH SIMPLE
+              ON UPDATE NO ACTION
+              ON DELETE NO ACTION
+      )
+      WITH (
+          OIDS = FALSE
+      )
+      TABLESPACE pg_default;
+
+      ALTER TABLE public.blogs
+          OWNER to postgres;
+
+          -- Table: public.comments
+
+-- DROP TABLE public.comments;
+
+CREATE TABLE public.comments
+(
+    id integer NOT NULL DEFAULT nextval('comments_id_seq'::regclass),
+    usercomment integer,
+    detail character varying(100) COLLATE pg_catalog."default",
+    blogid integer,
+    CONSTRAINT comments_blogid_fkey FOREIGN KEY (blogid)
+        REFERENCES public.blogs (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.comments
+    OWNER to postgres;
