@@ -1,57 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="/components/bootstrap/dist/css/bootstrap.css">
 	<meta name="description" content="Thông Tin Nhóm 1" />
 	<meta name="author" content="Sang, Phong" />
- 	<meta name="keyword" content="Blog, Blog Tâm Trạng" />
-    <link type="text/css" rel="stylesheet" href="css/mystyle.css" />
-    <script src="js/jquery.min.js" charset="utf-8"></script>
-    <script src="js/bootstrap.js" charset="utf-8"></script>
-    <link rel="icon" href="image/icon.gif" type="image/gif" >
-    <link rel="stylesheet" type="text/css" href="css/set1.css" />
+	<meta name="keyword" content="Blog, Blog Tâm Trạng" />
+	<link type="text/css" rel="stylesheet" href="/css/mystyle.css" />
+	<script src="/js/jquery.min.js" charset="utf-8"></script>
+	<script src="/js/bootstrap.js" charset="utf-8"></script>
+	<link rel="icon" href="/image/icon.gif" type="image/gif">
+	<link rel="stylesheet" type="text/css" href="/css/set1.css" />
 	<title>Blog Tâm Trạng</title>
-	<title>{{tilte}}</title>
+
 </head>
+
 <body>
 	<div id="header">
 		<div class="hLeft">
-			<h1><a href="#"><img src="image/logo.jpg" alt="logo"></a></h1>
-		<!--class hLeft--></div>
+			<h1><a href="#"><img src="/image/logo.jpg" alt="logo"></a></h1>
+			<!--class hLeft-->
+		</div>
 		<div class="hRight">
 			<ul class="hLogin">
 				<li><a href="#" target="_blank">Đăng Ký</a></li>
 				<li class="last"><a href="#" target="_blank">Đăng Nhập</a></li>
 			</ul>
 			<form class="navbar-form navbar-left">
-     			<div class="form-group">
-          			<input type="text" class="form-control" placeholder="Search">
-        		</div>
-        			<button type="button" class="btn btn-default">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Search">
+				</div>
+				<button type="button" class="btn btn-default">
   						<span class="glyphicon glyphicon-search"></span>
 					</button>
- 			</form>
-		<!--class hRight--></div>
-	<!-- / id header --></div>
-	<div id="gNav" >
+			</form>
+			<!--class hRight-->
+		</div>
+		<!-- / id header -->
+	</div>
+	<div id="gNav">
 		<nav class="nav navbar-default">
-			<div >
-					<button type="button" 
-						class="navbar-toggle collapsed" 
-						data-target="#main-nav123"
-						data-toggle="collapse"
-						aria-expanded="false"
-						name="button">
+			<div>
+				<button type="button" class="navbar-toggle collapsed" data-target="#main-nav123" data-toggle="collapse" aria-expanded="false" name="button">
 						<span class="sr-only">Toggle navigation</span>
 			        	<span class="icon-bar"></span>
 			        	<span class="icon-bar"></span>
 			        	<span class="icon-bar"></span>
 		        	</button>
-		    </div>
-			<div  class="collapse navbar-collapse" id="main-nav123">
+			</div>
+			<div class="collapse navbar-collapse" id="main-nav123">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="/">Home</a></li>
 					<li><a href="/albums">Albums</a></li>
@@ -63,56 +63,62 @@
 	</div>
 	<div id="pageBody">
 		<div id="leftMenu">
-			<h2>Danh Mục</h2>			    
-		    	<ul class="nav nav-pills nav-stacked">			
-					<li role="presentation"><a href="#">Tin Trong Ngày</a></li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Giải Trí <span class="caret"></span></a>
-	          		<ul class="dropdown-menu">
-			            <li><a href="#">Phim</a></li>		          
-			            <li role="separator" class="divider"></li>
-			            <li><a href="#">Ca nhạc - MV</a></li>
-			            <li role="separator" class="divider"></li>
-			            <li><a href="#">TV show</a></li>
-	         		</ul>
-	         		</li>
-					<li role="presentation"><a href="#">Thể Thao</a></li>
-					<li role="presentation"><a href="#">Thời Trang</a></li>
-					<li role="presentation"><a href="#">Làm Đẹp</a></li>
-					<li role="presentation"><a href="#">Sức Khỏe</a></li>
-					<li role="presentation"><a href="#">Ẩm Thực</a></li>
-				</ul>	
+			<h2>Danh Mục</h2>
+			<ul class="nav nav-pills nav-stacked">
+				<li role="presentation"><a href="#">Tin Trong Ngày</a></li>
+				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Giải Trí <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Phim</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="#">Ca nhạc - MV</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="#">TV show</a></li>
+					</ul>
+				</li>
+				<li role="presentation"><a href="#">Thể Thao</a></li>
+				<li role="presentation"><a href="#">Thời Trang</a></li>
+				<li role="presentation"><a href="#">Làm Đẹp</a></li>
+				<li role="presentation"><a href="#">Sức Khỏe</a></li>
+				<li role="presentation"><a href="#">Ẩm Thực</a></li>
+			</ul>
 		</div>
 		<div id="content">
-	  		<div class="container">
-	    	<div class="row">
-	     		{{{body}}}
-	    	</div>
-	  		</div>
-			
-		<!-- / id content --></div>
-	<!-- / id pageBody --></div>
-	
+			<div class="container">
+				<div class="row">
+					{{{body}}}
+				</div>
+			</div>
+
+			<!-- / id content -->
+		</div>
+		<!-- / id pageBody -->
+	</div>
+
 	<div id="footer">
 		<div class="fLeft">
-			<p><h4>Blog Tâm Trạng</h4></p>
-			<p>Địa chỉ:	227 Nguyễn Văn Cừ, phường 4, quận 5, TP.HCM<br />
-			<strong>Liên hệ quảng cáo:</strong> <br/>
-			Điện thoại: 012.3456789</p>
+			<p>
+				<h4>Blog Tâm Trạng</h4></p>
+			<p>Địa chỉ: 227 Nguyễn Văn Cừ, phường 4, quận 5, TP.HCM<br />
+				<strong>Liên hệ quảng cáo:</strong> <br/> Điện thoại: 012.3456789</p>
 			<p>Email: <a href="mailto:support@blogtamsu.com">support@blogtamsu.com</a></p>
-		<!-- / class fLeft --></div>
+			<!-- / class fLeft -->
+		</div>
 
 		<div class="fRight">
 			<ul>
-			<li><a href="/index">Home</a></li>
-			<li><a href="/albums">Albums</a></li>
-			<li><a href="/blogs">Blog</a></li>
-			<li class="last"><a href="/abouts">About Us</a></li>
+				<li><a href="/index">Home</a></li>
+				<li><a href="/albums">Albums</a></li>
+				<li><a href="/blogs">Blog</a></li>
+				<li class="last"><a href="/abouts">About Us</a></li>
 			</ul>
 			<p>Copyright (c) 2017 Blog Tâm Trạng</p>
-		<!--class fRight--></div>
-	<!-- / id footer --></div>
+			<!--class fRight-->
+		</div>
+		<!-- / id footer -->
+	</div>
 
 
-	
+
 </body>
+
 </html>
