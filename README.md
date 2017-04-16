@@ -6,7 +6,7 @@ Thành viên:
 * [x] **1312432** Phạm Hữu Phong (phphong257)
 * [x] **1312479** Lại Trọng Sang (laitrongsang95)
 
-URL: **URL hosting của bài tập**
+URL: **https://lab01-1312432-1312479.herokuapp.com/**
 
 ## Yêu cầu
 
