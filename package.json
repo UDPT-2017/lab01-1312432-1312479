@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"error\" && exit 1 ",
-    
+    "start": "nodemon index.js"
   },
   "author": "1312432 1312479",
   "license": "MIT",
