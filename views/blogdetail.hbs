@@ -1,9 +1,15 @@
-{{#each blog}}
+{{#each images}}
     <div class="">
-    user :{{this.user}}
-    title: {{this.title}}
-    detail: {{this.detail}}
-    view: {{this.view}}
-    <img src="{{this.image}}" alt="">
+        <div class="albums">
+            <div style=" border: 1px solid #ddd;border-radius: 4px;padding: 5px;width: 150px;">
+                <img src="{{this.avatar}}" alt="">
+            </div>
+            <div class="">
+                <label for="">title : {{this.title}}</label>
+            </div>
+            <div class="">
+                <label for="">detail : {{this.blogdetail}}</label>
+            </div>
+        </div>
     </div>
 {{/each}}

@@ -36,8 +36,8 @@
 
           //use the client for executing the query
           var sql = 'select a.id, a.title, a.userid, sum(p.view) as view ' +
-                    'from albums a left join photos p on (a.id = p.albumid)' +
-                    ' group by a.id';
+              'from albums a left join photos p on (a.id = p.albumid)' +
+              ' group by a.id';
           client.query(sql, function(err, result) {
               //call `done(err)` to release the client back to the pool (or destroy it if there is an error)
               done(err);
@@ -46,8 +46,9 @@
                   console.error('error running query', err);
               }
               var length = result.rowCount;
+              var images = [];
               if (length > 0) {
-                  var images = [];
+
                   for (var i = 0; i < result.rowCount; i++) {
                       images.push(result.rows[i]);
                   }
@@ -81,8 +82,9 @@
                   console.log('error query');
               }
               var length = result.rowCount;
+              var photos = [];
               if (length > 0) {
-                  var photos = [];
+
                   for (var i = 0; i < length; i++) {
                       photos.push(result.rows[i]);
                   }
@@ -110,7 +112,7 @@
           client.query('update photos set view = view + 1 where id = $1', [req.params.id], function(err, result) {
               done(err);
               if (err) {
-                console.log('error query');
+                  console.log('error query');
               }
           });
           // thuc hien update view album_photos
@@ -123,14 +125,12 @@
                   console.log('error query');
               }
               var length = result.rowCount;
+              var photos = [];
               if (length > 0) {
-                  var photos = [];
                   for (var i = 0; i < length; i++) {
                       photos.push(result.rows[i]);
                   }
               }
-
-
               res.render('photos', {
                   tilte: 'My Photo',
                   message: 'My Photo',
@@ -142,34 +142,73 @@
   });
 
   app.get('/blogs', function(req, res) {
-      var blogs = [{
-              title: 'blog1',
-              user: 'user 1',
-              image: 'image/image1.jpg',
-              view: 2,
-              detail: 'detail'
+      pool.connect(function(err, client, done) {
+          if (err) {
+              console.log('error');
           }
+          //thuc hien query
 
-      ];
-      res.render('blogs', {
-          title: 'My Blog',
-          message: 'My Blog',
-          blogs: blogs
+          client.query('select b.id, b.title, b.view, u.avatar, u.username from blogs b left join users u on (b.userid = u.id)', function(err, result) {
+              done(err);
+              console.log(req.params.id);
+              if (err) {
+                  console.log('error query');
+              }
+              var length = result.rowCount;
+              var blogs = [];
+              if (length > 0) {
+
+                  for (var i = 0; i < length; i++) {
+                      blogs.push(result.rows[i]);
+                  }
+              }
+
+
+              res.render('blogs', {
+                  tilte: 'My Album',
+                  message: 'My Album',
+                  images: blogs
+              });
+          });
       });
   });
 
-  app.get('/blogdetail', function(req, res) {
-      var blog = [{
-          user: 'user',
-          image: 'image/image1.jpg',
-          title: 'title',
-          detail: 'detail',
-          view: 3
-      }];
-      res.render('blogdetail', {
-          title: 'Blog Detail',
-          message: 'Blog Detail',
-          blog: blog
+  app.get('/blog/:id', function(req, res) {
+      pool.connect(function(err, client, done) {
+          if (err) {
+              console.log('error');
+          }
+          //thuc hien query update
+
+          client.query('update blogs set view = view + 1 where id = $1', [req.params.id], function(err, result) {
+              done(err);
+              if (err) {
+                  console.log('error');
+              }
+          });
+          //thuc hien select blogs
+          client.query('select b.id, b.title, b.blogdetail, u.avatar, u.username from blogs b,users u where b.id = $1 and b.userid = u.id',[req.params.id], function(err, result){
+            done(err);
+            if(err){
+              console.log('error query');
+            }
+            var length = result.rowCount;
+            var blog = [];
+            if (length > 0) {
+
+                for (var i = 0; i < length; i++) {
+                    blog.push(result.rows[i]);
+                }
+            }
+
+
+            res.render('blogdetail', {
+                tilte: 'My Blog',
+                message: 'My Blog',
+                images: blog,
+                
+            });
+          });
       });
   });
 
@@ -178,7 +217,6 @@
       res.render('abouts', {
           title: 'about',
           message: 'about',
-
       });
   });
 

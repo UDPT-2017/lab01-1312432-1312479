@@ -1,11 +1,23 @@
-{{#each blogs}}
-<div class="">
-  title : {{this.title}}
-  user: {{this.user}}
-  view : {{this.view}}
-  <a href="/blogdetail">chitietblog</a>
-  <!--img src="{{this.image}}" alt=""-->
-</div>
-{{/each}}
+<h2>My Blogs</h2>
+{{#each images}}
+    <div class="col-sm-2">
+        <div class="albums">
+            <div class="">
+                <img src="{{this.avatar}}" alt="">
+            </div>
+            <div class="">
+                <label for="">Nguoi dang : {{this.username}}</label>
+            </div>
+            <div class="">
+                <label for="">title : {{this.title}}</label>
+            </div>
+            <div class="">
+                <label for="">view : {{this.view}}</label>
 
-<button>xin chao</button>
+            </div>
+            <div class="">
+                <a href="blog/{{this.id}}">chi tiet</a>
+            </div>
+        </div>
+    </div>
+{{/each}}
