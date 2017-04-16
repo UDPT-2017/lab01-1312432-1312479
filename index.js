@@ -215,18 +215,47 @@
                   }
                   var length = result.rowCount;
                   var blog = [];
+                  var blogid = result.rows[0].id;
                   if (length > 0) {
 
                       for (var i = 0; i < length; i++) {
                           blog.push(result.rows[i]);
                       }
                   }
+                  /* var getlistcomment = function(blog){
+                      pool.connect(function(err, client, done){
+                        if(err){
+                          console.log('error');
+                        }
+                        client.query('select cmt.id, u.username, cmt.detail from users u left join comments cmt on (u.id = cmt.usercomment) where cmt.blogid = $1', [blog], function(err,result){
+                          done(err);
+                          if(err){
+                            console.log('query error');
+                          }
+                          var length = result.rowCount;
+                          var comments = [];
+                          if(length > 0){
+                            for(var i = 0 ; i < length; i++){
+                              comments.push(result.rows[i]);
+                            }
+                          }
+                          console.log(comments);
+                          return comments;
+                        });
+                      })
+                    }*/
 
+                  //  var listcomment = getlistcomment(result.rows[0].id);
+                  //    var aaa = [{id: 1},{id:2}];
+                  console.log('list');
+                  //console.log(listcomment);
+                  console.log('list');
 
                   res.render('blogdetail', {
                       tilte: 'My Blog',
                       message: 'My Blog',
                       images: blog,
+                      blogid: blogid,
 
                   });
               });
@@ -235,6 +264,8 @@
           res.redirect('/dangnhap');
       }
   });
+
+
 
   app.get('/abouts', function(req, res) {
 
@@ -342,6 +373,49 @@
       });
   });
 
+  app.post('/blog/:id', function(req, res) {
+      pool.connect(function(err, client, done) {
+          if (err) {
+              console.log('error');
+          }
+          console.log(req.session.iduserlogin);
+          console.log(req.body.comment);
+          console.log(req.body.blogid);
+          client.query('insert into comments(usercomment, detail, blogid) values($1, $2, $3)', [req.session.iduserlogin, req.body.comment, req.body.blogid], function(err, result) {
+              done(err);
+              if (err) {
+                  console.log('error query !!');
+              }
+              res.redirect('/blog/' + req.body.blogid);
+          });
+      });
+  });
+
+  app.get('/comment/:id', function(req, res) {
+      pool.connect(function(err, client, done) {
+          if (err) {
+              console.log('error');
+          }
+          client.query('select cmt.id, cmt.detail, u.username from comments cmt, users u where cmt.usercomment = u.id and cmt.blogid = $1', [req.params.id], function(err, result) {
+              done(err);
+              if (err) {
+                  console.log('query error');
+              }
+              var length = result.rowCount;
+              var comments = [];
+              if (length > 0) {
+                  for (var i = 0; i < length; i++) {
+                      comments.push(result.rows[i]);
+                  }
+              }
+              res.render('comment', {
+                  title: 'comment',
+                  message: 'comment',
+                  comments: comments
+              });
+          });
+      })
+  });
   app.listen(3000, function() {
       console.log('Example app listening on port 3000!');
   });
