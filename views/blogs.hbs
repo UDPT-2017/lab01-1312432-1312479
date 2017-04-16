@@ -1,6 +1,24 @@
-<h2>My Blogs</h2>
+<div class="">
+	<a href="/"><label><font size="5"> Home </font></label></a>
+  <label for="">>></label>
+  <a href="/blogs"><label><font size="5"> Blog </font></label></a>
+</div>
+<div class="">
+  <form class="" action="" method="post">
+    <div class="form-group">
+        <label for="">title :</label>
+        <input type="text" class="form-control" name="title" required placeholder="nhap title">
+    </div>
+    <div class="form-group">
+        <label for="">detail :</label>
+        <input type="text" class="form-control" name="blogdetail" required placeholder="nhap detail">
+    </div>
+    <button type="reset" class="btn btn-default">Reset</button>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
 {{#each images}}
-    <div class="col-sm-2">
+    <div class="col-sm-4">
         <div class="albums">
             <div class="">
                 <img src="{{this.avatar}}" alt="">
