@@ -1,7 +1,23 @@
+<h2>My Albums</h2>
 {{#each images}}
-    <div class="">
-        <a href="/photos">
-            <img src="{{this}}" alt="">
-        </a>
+    <div class="col-sm-2">
+        <div class="albums">
+            <a href="/album/{{this.id}}"><img src="image/folder.png" ></a>
+            <div class="">
+                <label>{{this.title}}</label>
+            </div>
+            <div class="">
+                <label for="">view : {{this.view}}</label>
+            </div>
+        </div>
     </div>
 {{/each}}
+<!--div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="albums">
+                <a href="/photos"><img src="image/folder.png" alt="albums1"> Album 1</a>
+            </div>
+        </div>
+    </div>
+</div-->

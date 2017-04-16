@@ -1,9 +1,11 @@
+<h2>My Photo</h2>
 {{#each images}}
-  <div class="">
-    view {{this.view}}
-    <a href="#">
-      <img src="{{this.image}}" alt="">
-    </a>
-  </div>
-
+    <div class="col-sm-10">
+        <div class="albums">
+            <img src="{{this.url}}">
+        </div>
+        <div class="">
+          <label for="">view : {{this.view}}</label>
+        </div>
+    </div>
 {{/each}}
