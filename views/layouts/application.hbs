@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="stylesheet" href="/components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="/css/bootstrap.css">
 	<meta name="description" content="Thông Tin Nhóm 1" />
 	<meta name="author" content="Sang, Phong" />
 	<meta name="keyword" content="Blog, Blog Tâm Trạng" />
@@ -44,16 +44,16 @@
 	<div id="gNav">
 		<nav class="nav navbar-default">
 			<div>
-				<button type="button" class="navbar-toggle collapsed" data-target="#main-nav123" data-toggle="collapse" aria-expanded="false" name="button">
+				<button type="button" class="navbar-toggle collapsed" data-target="#main-nav" data-toggle="collapse" aria-expanded="false" name="button">
 						<span class="sr-only">Toggle navigation</span>
 			        	<span class="icon-bar"></span>
 			        	<span class="icon-bar"></span>
 			        	<span class="icon-bar"></span>
 		        	</button>
 			</div>
-			<div class="collapse navbar-collapse" id="main-nav123">
+			<div class="collapse navbar-collapse" id="main-nav">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="/">Home</a></li>
+					<li><a href="/">Home</a></li>
 					<li><a href="/albums">Albums</a></li>
 					<li><a href="/abouts">About</a></li>
 					<li><a href="/blogs">Blog</a></li>
@@ -64,24 +64,32 @@
 	<div id="pageBody">
 		<div id="leftMenu">
 			<h2>Danh Mục</h2>
-			<ul class="nav nav-pills nav-stacked">
-				<li role="presentation"><a href="#">Tin Trong Ngày</a></li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Giải Trí <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Phim</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="#">Ca nhạc - MV</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="#">TV show</a></li>
-					</ul>
-				</li>
-				<li role="presentation"><a href="#">Thể Thao</a></li>
-				<li role="presentation"><a href="#">Thời Trang</a></li>
-				<li role="presentation"><a href="#">Làm Đẹp</a></li>
-				<li role="presentation"><a href="#">Sức Khỏe</a></li>
-				<li role="presentation"><a href="#">Ẩm Thực</a></li>
-			</ul>
-		</div>
+			<nav class="nav navbar-default">
+			<div>
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" 
+				data-target="#leftmenu"
+				aria-expanded="false" name="button">Show</button>
+   			</div>
+			<div class="collapse navbar-collapse" id="leftmenu">
+				<ul class="nav nav-pills nav-stacked">
+					<li role="presentation"><a href="#">Tin Trong Ngày</a></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Giải Trí <span class="caret"></span></a>
+	          		<ul class="dropdown-menu">
+			            <li><a href="#">Phim</a></li>		          
+			            <li role="separator" class="divider"></li>
+			            <li><a href="#">Ca nhạc - MV</a></li>
+			            <li role="separator" class="divider"></li>
+			            <li><a href="#">TV show</a></li>
+	         		</ul>
+	         		</li>
+					<li role="presentation"><a href="#">Thể Thao</a></li>
+					<li role="presentation"><a href="#">Thời Trang</a></li>
+					<li role="presentation"><a href="#">Làm Đẹp</a></li>
+					<li role="presentation"><a href="#">Sức Khỏe</a></li>
+					<li role="presentation"><a href="#">Ẩm Thực</a></li>
+				</ul>	
+			</div>	
+		<!--id leftMenu--></div>
 		<div id="content">
 			<div class="container">
 				<div class="row">
