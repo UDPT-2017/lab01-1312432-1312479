@@ -52,13 +52,13 @@ Liệt kê các **yêu cầu nâng cao** đã thực hiện:
 ## Demo
 
 Link ảnh GIF demo ứng dụng:
-trang Home
+####trang Home
 ![alt text](https://github.com/UDPT-2017/lab01-1312432-1312479/blob/master/gif/home.gif)
-trang Albums
+####trang Albums
 ![alt text](https://github.com/UDPT-2017/lab01-1312432-1312479/blob/master/gif/album.gif)
-trang About
+####trang About
 ![alt text](https://github.com/UDPT-2017/lab01-1312432-1312479/blob/master/gif/about.gif)
-trang Blog
+####trang Blog
 ![alt text](https://github.com/UDPT-2017/lab01-1312432-1312479/blob/master/gif/blog.gif)
 Tạo ảnh GIF với chương trình [LiceCap](http://www.cockos.com/licecap/).
 
