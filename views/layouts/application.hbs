@@ -65,24 +65,32 @@
 	<div id="pageBody">
 		<div id="leftMenu">
 			<h2>Danh Mục</h2>
-			<ul class="nav nav-pills nav-stacked">
-				<li role="presentation"><a href="#">Tin Trong Ngày</a></li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Giải Trí <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Phim</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="#">Ca nhạc - MV</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="#">TV show</a></li>
-					</ul>
-				</li>
-				<li role="presentation"><a href="#">Thể Thao</a></li>
-				<li role="presentation"><a href="#">Thời Trang</a></li>
-				<li role="presentation"><a href="#">Làm Đẹp</a></li>
-				<li role="presentation"><a href="#">Sức Khỏe</a></li>
-				<li role="presentation"><a href="#">Ẩm Thực</a></li>
-			</ul>
-		</div>
+			<nav class="nav navbar-default">
+			<div>
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" 
+				data-target="#leftmenu"
+				aria-expanded="false" name="button">Show</button>
+   			</div>
+			<div class="collapse navbar-collapse" id="leftmenu">
+				<ul class="nav nav-pills nav-stacked">
+					<li role="presentation"><a href="#">Tin Trong Ngày</a></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Giải Trí <span class="caret"></span></a>
+	          		<ul class="dropdown-menu">
+			            <li><a href="#">Phim</a></li>		          
+			            <li role="separator" class="divider"></li>
+			            <li><a href="#">Ca nhạc - MV</a></li>
+			            <li role="separator" class="divider"></li>
+			            <li><a href="#">TV show</a></li>
+	         		</ul>
+	         		</li>
+					<li role="presentation"><a href="#">Thể Thao</a></li>
+					<li role="presentation"><a href="#">Thời Trang</a></li>
+					<li role="presentation"><a href="#">Làm Đẹp</a></li>
+					<li role="presentation"><a href="#">Sức Khỏe</a></li>
+					<li role="presentation"><a href="#">Ẩm Thực</a></li>
+				</ul>	
+			</div>	
+		<!--id leftMenu--></div>
 		<div id="content">
 			<div class="container">
 				<div class="row">
