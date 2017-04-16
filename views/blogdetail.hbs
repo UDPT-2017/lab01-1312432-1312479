@@ -1,21 +1,37 @@
 <div class="">
 	<a href="/"><label><font size="5"> Home </font></label></a>
-  <label for="">>></label>
-  <a href="/blogs"><label><font size="5"> Blog </font></label></a>
+	<label for="">>></label>
+	<a href="/blogs"><label><font size="5"> Blog </font></label></a>
 
 </div>
 {{#each images}}
-    <div class="">
-        <div class="albums">
-            <div style=" border: 1px solid #ddd;border-radius: 4px;padding: 5px;width: 150px;">
-                <img src="{{this.avatar}}" alt="">
-            </div>
-            <div class="">
-                <label for="">title : {{this.title}}</label>
-            </div>
-            <div class="">
-                <label for="">detail : {{this.blogdetail}}</label>
-            </div>
-        </div>
-    </div>
+	<div class="">
+		<div class="albums">
+			<div style=" border: 1px solid #ddd;border-radius: 4px;padding: 5px;width: 150px;">
+				<img src="{{this.avatar}}" alt="">
+			</div>
+			<div class="">
+				<label for="">title : {{this.title}}</label>
+			</div>
+			<div class="">
+				<label for="">detail : {{this.blogdetail}}</label>
+			</div>
+		</div>
+	</div>
+
 {{/each}}
+
+<div class="">
+	<form class="" action="" method="post">
+		<input type="hidden" name="blogid" value="{{blogid}}">
+		<div class="form-group">
+			<label for="">title :</label>
+			<input type="text" class="form-control" name="comment" required placeholder="viet comment">
+		</div>
+		<button type="submit" name="button" class="btn btn-success">Comment</button>
+	</form>
+</div>
+
+<div class="">
+	<a href="/comment/{{blogid}}">view list comment </a>
+</div>
