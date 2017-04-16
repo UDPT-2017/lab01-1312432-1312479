@@ -1,8 +1,14 @@
-<h2>My Albums</h2>
+<div class="">
+    <a href="/"><label><font size="5"> Home </font></label></a>
+    <label for="">>></label>
+    <a href="/albums"><label><font size="5"> Album </font></label></a>
+</div>
+
+
 {{#each images}}
     <div class="col-sm-2">
         <div class="albums">
-            <a href="/album/{{this.id}}"><img src="image/folder.png" ></a>
+            <a href="/album/{{this.id}}"><img src="image/folder.png"></a>
             <div class="">
                 <label>{{this.title}}</label>
             </div>

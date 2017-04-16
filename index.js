@@ -28,6 +28,7 @@
       res.render('index', {
           title: ' Hey HomePage',
           message: 'My HomePage',
+          login: '1'
       });
   });
 
@@ -320,6 +321,25 @@
       console.log(req.session);
       console.log(req.session.userid);
       res.redirect('/dangnhap');
+  });
+
+  app.post('/blogs', function(req, res) {
+      pool.connect(function(err, client, done) {
+          if (err) {
+              console.log('error');
+          }
+          client.query('insert into blogs(title, blogdetail, view, userid) values($1, $2, $3, $4)', [req.body.title, req.body.blogdetail, 0, req.session.iduserlogin], function(err, result) {
+              if (err) {
+                  console.log('error query');
+              }
+              done(err);
+              console.log(result.rowCount);
+              console.log(req.session.iduserlogin);
+              res.redirect('/blogs');
+          });
+
+
+      });
   });
 
   app.listen(3000, function() {
